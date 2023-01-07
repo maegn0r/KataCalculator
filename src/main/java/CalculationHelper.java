@@ -1,3 +1,5 @@
+import java.util.regex.Pattern;
+
 class CalculationHelper {
 
     public static String parseAndCalc(String line) {
@@ -27,5 +29,12 @@ class CalculationHelper {
             result = Integer.toString(multi);
         }
         return result;
+    }
+
+    public static boolean validate (String line){
+        if (line.matches("^\\p{Alnum}{1,2}[+\\-*\\/]\\p{Alnum}{1,2}$")) {
+            return true;
+        }
+        return false;
     }
 }

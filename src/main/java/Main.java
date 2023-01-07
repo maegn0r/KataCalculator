@@ -14,6 +14,10 @@ public class Main {
         }
     }
     public static String calc(String input){
-        return CalculationHelper.parseAndCalc(input);
+        if (!CalculationHelper.validate(input)){
+            throw new RuntimeException("Не прошло валидацию");
+        } else {
+            return CalculationHelper.parseAndCalc(input);
+        }
     }
 }
