@@ -1,4 +1,4 @@
-enum Digits {
+enum DigitsToCalc {
     arabicOne(1, "1", true),
     arabicTwo(2, "2", true),
     arabicThree(3, "3", true),
@@ -23,7 +23,8 @@ enum Digits {
     private final int value;
     private final String label;
     private final boolean isArabic;
-    Digits(int value, String label, boolean isArabic) {
+
+    DigitsToCalc(int value, String label, boolean isArabic) {
         this.value = value;
         this.label = label;
         this.isArabic = isArabic;
