@@ -10,7 +10,6 @@ class Main {
             while (!(line = reader.readLine()).equals("exit")) {
                 System.out.println(calc(line));
             }
-
         } catch (IOException | RuntimeException e) {
             e.printStackTrace();
         } finally {
