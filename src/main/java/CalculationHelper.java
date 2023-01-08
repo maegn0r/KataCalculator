@@ -28,8 +28,8 @@ class CalculationHelper {
             throw new RuntimeException("Неверный формат данных. Введите два арабских или римских числа от 1 до 10, разделенные одним из знаков: +, -, *, /");
         }
         List<DigitsToCalc> enumList = Arrays.stream(DigitsToCalc.values()).toList();
-        DigitsToCalc firstDigit = enumList.stream().filter(i -> i.getLabel().equals(whatToCalc[0])).findFirst().orElseThrow(() -> new RuntimeException("Ошибка в первом введенном числе"));
-        DigitsToCalc secondDigit = enumList.stream().filter(i -> i.getLabel().equals(whatToCalc[1])).findFirst().orElseThrow(() -> new RuntimeException("Ошибка во втором введенном числе"));
+        DigitsToCalc firstDigit = enumList.stream().filter(i -> i.getLabel().equals(whatToCalc[0].trim())).findFirst().orElseThrow(() -> new RuntimeException("Ошибка в первом введенном числе"));
+        DigitsToCalc secondDigit = enumList.stream().filter(i -> i.getLabel().equals(whatToCalc[1].trim())).findFirst().orElseThrow(() -> new RuntimeException("Ошибка во втором введенном числе"));
         if (!(firstDigit.isArabic() == secondDigit.isArabic())) {
             throw new RuntimeException("Неверный формат ввода данных: требуется ввести два арабских или два римских числа");
         }
