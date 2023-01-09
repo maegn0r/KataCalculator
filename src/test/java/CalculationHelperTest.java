@@ -11,6 +11,8 @@ void calcTest(){
     Assertions.assertEquals("C", CalculationHelper.parseAndCalc("X*X"));
     Assertions.assertEquals("-3", CalculationHelper.parseAndCalc("2-5"));
     Assertions.assertThrows(RuntimeException.class, () -> CalculationHelper.parseAndCalc("V-5"));
+    Assertions.assertThrows(RuntimeException.class, () -> CalculationHelper.parseAndCalc("V-V"));
+    Assertions.assertThrows(RuntimeException.class, () -> CalculationHelper.parseAndCalc("V-VIII"));
 }
 
 
