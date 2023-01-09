@@ -3,13 +3,13 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-enum RomanNumeral {
+enum RomanDigits {
     I(1), IV(4), V(5), IX(9), X(10),
     XL(40), L(50), XC(90), C(100);
 
-    private int value;
+    private final int value;
 
-    RomanNumeral(int value) {
+    RomanDigits(int value) {
         this.value = value;
     }
 
@@ -17,9 +17,9 @@ enum RomanNumeral {
         return value;
     }
 
-    public static List<RomanNumeral> getReverseSortedValues() {
+    public static List<RomanDigits> getReverseSortedValues() {
         return Arrays.stream(values())
-                .sorted(Comparator.comparing((RomanNumeral e) -> e.value).reversed())
+                .sorted(Comparator.comparing((RomanDigits e) -> e.value).reversed())
                 .collect(Collectors.toList());
     }
 }

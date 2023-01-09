@@ -4,7 +4,7 @@ import java.util.List;
 class CalculationHelper {
 
     public static String parseAndCalc(String line) {
-        String result = null;
+        String result;
         if (line.contains("+")) {
             result = calculate("\\+", line);
         } else if (line.contains("-")) {
@@ -37,18 +37,10 @@ class CalculationHelper {
             isRoman = true;
         }
         switch (mathOperationType) {
-            case "\\+":
-                result = firstDigit.getValue() + secondDigit.getValue();
-                break;
-            case "\\-":
-                result = firstDigit.getValue() - secondDigit.getValue();
-                break;
-            case "\\*":
-                result = firstDigit.getValue() * secondDigit.getValue();
-                break;
-            case "\\/":
-                result = firstDigit.getValue() / secondDigit.getValue();
-                break;
+            case "\\+" -> result = firstDigit.getValue() + secondDigit.getValue();
+            case "\\-" -> result = firstDigit.getValue() - secondDigit.getValue();
+            case "\\*" -> result = firstDigit.getValue() * secondDigit.getValue();
+            case "\\/" -> result = firstDigit.getValue() / secondDigit.getValue();
         }
         if (!isRoman) {
             return Integer.toString(result);
@@ -57,16 +49,16 @@ class CalculationHelper {
 
     public static String arabicToRoman(int number) {
         if ((number <= 0) || (number > 100)) {
-            throw new IllegalArgumentException(number + " не входит в диапазон вычисляемых значений для римских цифр");
+            throw new RuntimeException(number + " не входит в диапазон вычисляемых значений для римских цифр");
         }
 
-        List<RomanNumeral> romanNumerals = RomanNumeral.getReverseSortedValues();
+        List<RomanDigits> romanDigits = RomanDigits.getReverseSortedValues();
 
         int i = 0;
         StringBuilder sb = new StringBuilder();
 
-        while ((number > 0) && (i < romanNumerals.size())) {
-            RomanNumeral currentSymbol = romanNumerals.get(i);
+        while ((number > 0) && (i < romanDigits.size())) {
+            RomanDigits currentSymbol = romanDigits.get(i);
             if (currentSymbol.getValue() <= number) {
                 sb.append(currentSymbol.name());
                 number -= currentSymbol.getValue();
