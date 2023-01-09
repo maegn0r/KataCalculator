@@ -3,16 +3,16 @@ import java.util.List;
 
 class CalculationHelper {
 
-    public static String parseAndCalc(String line) {
+    public static String checkMathOperationSign(String line) {
         String result;
         if (line.contains("+")) {
-            result = calculate("\\+", line);
+            result = parseAndCalc("\\+", line);
         } else if (line.contains("-")) {
-            result = calculate("\\-", line);
+            result = parseAndCalc("\\-", line);
         } else if (line.contains("*")) {
-            result = calculate("\\*", line);
+            result = parseAndCalc("\\*", line);
         } else if (line.contains("/")) {
-            result = calculate("\\/", line);
+            result = parseAndCalc("\\/", line);
         } else {
             throw new RuntimeException("Неверный формат ввода данных, добавьте тип математической операции (+-*/)");
         }
@@ -20,7 +20,7 @@ class CalculationHelper {
         return result;
     }
 
-    public static String calculate(String mathOperationType, String line) {
+    public static String parseAndCalc(String mathOperationType, String line) {
         boolean isRoman = false;
         int result = 0;
         String[] whatToCalc = line.split(mathOperationType);

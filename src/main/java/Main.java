@@ -18,6 +18,6 @@ class Main {
     }
 
     public static String calc(String input) {
-        return CalculationHelper.parseAndCalc(input);
+        return CalculationHelper.checkMathOperationSign(input);
     }
 }
